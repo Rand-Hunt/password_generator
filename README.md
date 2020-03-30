@@ -5,6 +5,9 @@
 ## Summary 
 This is a password generation tool.  It produces a password between 8 and 128 characters long, with options of uppercase, lowercase, numbers, and special characters. 
 
+## Live URL
+[Password Generator](https://rand-hunt.github.io/password_generator/)
+
 ## Screenshots 
 ![Site](03-javascript-homework-demo.png)
 
