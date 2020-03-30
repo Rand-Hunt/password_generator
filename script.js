@@ -92,6 +92,8 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+// CharacterTotal Limits
+var number 
 
 // Write password to the #password input
 function writePassword() {
@@ -102,12 +104,17 @@ function writePassword() {
 
 // Create function, and prompt user for password customization 
 function generatePassword() {
-  var includeLowercase = prompt("Do you want to include lowercase characters? Y/N");
-  var includeUppercase = prompt("Do you want to include UpperCase characters? Y/N");
-  var includeNumbers = prompt("Do you want to include Numbers? Y/N");
-  var includeSpecial = prompt("Do you want to include special characters? Y/N");
-  var characterTotal = Number(prompt("How many characters total? "));
-
+  var includeLowercase = prompt("Do you want to include lowercase characters? (Y/N)");
+  var includeUppercase = prompt("Do you want to include UpperCase characters? (Y/N)");
+  var includeNumbers = prompt("Do you want to include Numbers? (Y/N)");
+  var includeSpecial = prompt("Do you want to include special characters? (Y/N)");
+  
+//Require character range during prompt 
+  var characterTotal = (function ask() {
+    var n = prompt("How many characters total? (Minimum 8, Maximum 128) ");
+    return isNaN(n) || +n > 128 || +n < 8 ? ask() : n;
+  }());
+  
   //Create user generated character array for password
   if (includeLowercase.toLocaleLowerCase() === "y") {
     resultArray.push(lowerCasedCharacters);
