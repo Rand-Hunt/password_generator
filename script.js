@@ -100,19 +100,13 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// Prompt user for password customization 
+// Create function, and prompt user for password customization 
 function generatePassword() {
-
   var includeLowercase = prompt("Do you want to include lowercase characters? Y/N");
- 
   var includeUppercase = prompt("Do you want to include UpperCase characters? Y/N");
-
   var includeNumbers = prompt("Do you want to include Numbers? Y/N");
-
   var includeSpecial = prompt("Do you want to include special characters? Y/N");
-
   var characterTotal = Number(prompt("How many characters total? "));
-
 
   //Create user generated character array for password
   if (includeLowercase.toLocaleLowerCase() === "y") {
@@ -129,31 +123,29 @@ function generatePassword() {
 
   if (includeSpecial.toLocaleLowerCase() === "y") {
     resultArray.push(specialCharacters);
-  }  
+  }
+
+  // Create Password Output Variable 
   var passwordOutput = "";
-  
-  //For Loop
+
+  // For Loop and random number generator 
   for (var i = 0; i < characterTotal; i++) {
     var firstIndex = getRandomArbitrary(0, resultArray.length)
     var seccondIndex = getRandomArbitrary(0, resultArray[firstIndex].length)
-    
-        
+
     passwordOutput = passwordOutput + resultArray[firstIndex][seccondIndex]
   }
 
-return passwordOutput
-
+  return passwordOutput
 }
 
 // Combined Array from user selection
 var resultArray = [];
 
-
 // Random number generation
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
